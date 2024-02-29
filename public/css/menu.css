@@ -1,40 +1,3 @@
-.App {
-  text-align: center;
-}
-
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
 /* ===== Google Font Import - Poppins ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -43,9 +6,16 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    transition: all 0.4s ease;;
+    transition: all 0.4s ease;
+    
 }
 
+
+.spanLogo {
+    font-size: 1.8em;
+    color:#FFF ;
+    font-weight: bold;
+}
 
 /* ===== Colours ===== */
 :root{
@@ -62,13 +32,7 @@ body{
     background-color: var(--body-color);
 }
 
-body.dark{
-    --body-color: #18191A;
-    --nav-color: #242526;
-    --side-nav: #242526;
-    --text-color: #CCC;
-    --search-bar: #242526;
-}
+
 
 nav{
     position: fixed;
@@ -300,8 +264,6 @@ body.dark .search-field i{
     nav.active .nav-bar .navLogo a{
         opacity: 0;
         transition: all 0.3s ease;
-        color: #FFF;
-        font-size: 22px;
     }
 
     .menu .logo-toggle{
@@ -329,6 +291,23 @@ body.dark .search-field i{
     }
 }
 
+  
+  .outer {
+    width:100%;
+    display: flex;
+    justify-content: center;
+  }
 
+  #text3d{
+  
+    position: absolute;
+    top: 28%; 
+    right: 50%;
+    transform: translate(50%,-50%);
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #000000;
 
-
+}
