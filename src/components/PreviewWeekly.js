@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Util from './Util';
 import ErrorPage from "./ErrorPage";
+import { NavLink } from 'react-router-dom';
 
 const cache = {};
 
@@ -28,7 +29,6 @@ function PreviewWeekly(){
 
       }).catch(
         function (error) {
-          console.log('Show error notification!'+error);
           setError(true);
         }
       )
@@ -53,8 +53,7 @@ function PreviewWeekly(){
 
     <div className="box">
 
-
-      <label id="text3d">Check all signs from 19th to 25th Feb.</label>
+      <label id="text3d">Check all signs from {Util.getDate(weeklyList[0].startedAt)} to {Util.getDate(weeklyList[0].endedAt)}</label>
 
       <br/><br/>
       <br/><br/>
@@ -84,8 +83,11 @@ function PreviewWeekly(){
               <span>{Util.trimDownToWord(d.content, 100)}</span>
             </div>
                         
-            <a href={"/detail?sign="+d.sign}>Learn More</a>
-               
+            <NavLink
+                      key={"detail_"+d.sign}
+                      to="/detail"
+                      state={{ sign: d.sign , details: d.content}}
+                    > Learn More</NavLink>
           </div>
           <br/>
         </div>	

@@ -9,7 +9,6 @@ import PreviewWeekly from "./components/PreviewWeekly";
 import Contact from "./components/Contact";
 import ErrorPage from "./components/ErrorPage";
 
-
 import {
     NavLink
 } from "react-router-dom";

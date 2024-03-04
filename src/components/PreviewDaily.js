@@ -3,9 +3,7 @@ import axios from 'axios';
 import Util from './Util';
 import React from 'react';
 import ErrorPage from "./ErrorPage";
-
-
-
+import { NavLink } from 'react-router-dom';
 
 const cache = {};
 
@@ -17,33 +15,32 @@ function PreviewDaily() {
 
   useEffect(() => {
 
-      const serviceUrl = process.env.REACT_APP_API_ENDPOINT + "/daily-horoscopes";
-       
-      if (!Util.isEmpty(cache[serviceUrl])) {
-        const data = cache[serviceUrl];
-        setDailyList(data);
+    const serviceUrl = process.env.REACT_APP_API_ENDPOINT + "/daily-horoscopes";
+
+    if (!Util.isEmpty(cache[serviceUrl])) {
+      const data = cache[serviceUrl];
+      setDailyList(data);
+      setLoading(false);
+
+    } else {
+      axios.get(serviceUrl, Util.getConfigForApiCall()).then(response => {
+        setDailyList(response.data);
         setLoading(false);
+        cache[serviceUrl] = response.data;
 
-      } else {
-        axios.get(serviceUrl, Util.getConfigForApiCall()).then(response => {
-          setDailyList(response.data);
-          setLoading(false);
-          cache[serviceUrl] = response.data;
+      }).catch(
+        function (error) {
+          setError(true)
+        }
+      )
 
-        }).catch(
-          function (error) {
-            console.log('Show error notification!'+error);
-            setError(true)
-          }
-        )
-        
-      }
+    }
 
- 
+
   }, []);
 
-  if (isError){
-    return <ErrorPage/>;
+  if (isError) {
+    return <ErrorPage />;
   }
 
   if (isLoading) {
@@ -60,7 +57,7 @@ function PreviewDaily() {
 
     <div >
 
-      <label id="text3d">Check all signs for 19th Feb.</label>
+      <label id="text3d">Check all signs for {Util.getDate(dailyList[0].startedAt)}</label>
 
       <br /><br />
       <br /><br />
@@ -89,9 +86,11 @@ function PreviewDaily() {
                   <span>{Util.trimDownToWord(d.content, 100)}</span>
                 </div>
 
-                <a href={"/detail?sign=" + d.sign+"&details="+d.content}>Learn More</a>
-
-
+                <NavLink
+                  key={"detail_" + d.sign}
+                  to="/detail"
+                  state={{ sign: d.sign, details: d.content }}
+                > Learn More</NavLink>
               </div>
               <br />
             </div>

@@ -1,5 +1,6 @@
 
 import { Buffer } from "buffer";
+import moment from "moment";
 
 class Util {
     // Simple function
@@ -46,6 +47,21 @@ class Util {
 
         return config;
 
+      }
+
+      static getDate(input) {
+        var formatted = moment(input).format('Do MMM');
+        return formatted;
+      }
+
+      static getYear(input) {
+        var formatted = moment(input).format('YYYY');
+        return formatted;
+      }
+
+      static getMonth(input) {
+        var formatted = moment(input).format('MMMM');
+        return formatted;
       }
 
   }

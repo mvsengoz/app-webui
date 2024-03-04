@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import 'font-awesome/css/font-awesome.min.css';
 import { BrowserRouter } from 'react-router-dom'
+import "./css/menu.css";
+import "./css/contact.css";
+import "./css/error.css";
+import "./css/loader.css";
+import "./css/boxicons.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

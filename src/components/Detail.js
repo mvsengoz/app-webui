@@ -1,12 +1,22 @@
+import PreviewDaily from "./PreviewDaily";
+import { useLocation } from "react-router-dom";
+import Util from './Util';
 
 function Detail(props){
 
+  const location = useLocation()
+  const sign = location.state.sign;
+  const details = location.state.details;
 
+
+/*
 let search = window.location.search;
 let params = new URLSearchParams(search);
-const sign = params.get('sign')
 const details = params.get('details')
-console.log(sign)
+*/
+  if( Util.isEmpty(sign) || Util.isEmpty(details)){
+    return <PreviewDaily/>;
+  }
 
 
     return (
