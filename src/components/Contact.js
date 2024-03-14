@@ -1,7 +1,8 @@
 import axios from 'axios';
 import moment from "moment";
-import ErrorPage from "./ErrorPage";
+
 import Util from './Util';
+
 
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,9 +12,8 @@ const handleSubmit = (event) => {
     let email = event.target.elements.email.value;
     let message = event.target.elements.message.value;
     let createdAt = moment().format("YYYY-MM-DDTHH:mm:ss");
-    var isError = false;
-
-
+   
+ 
     const data = JSON.stringify(
         {
             name: name,
@@ -22,21 +22,39 @@ const handleSubmit = (event) => {
             createdAt: createdAt
         });
 
-    const result = axios.post(baseURL, data, Util.getConfigForApiCall()).catch(
-        function (error) {
-            console.log('Show error notification!' + error);
-            isError = true;
-           
-        }
-    ).finally(() => {
-        return <ErrorPage/>;
-    }) 
 
-    alert(result);
+
+      sendMessage(baseURL, data, event);
+
+
+  
 
 }
 
+async function sendMessage(baseURL, data, event) {
+
+    const result = await axios.post(baseURL, data, Util.getConfigForApiCall()).catch(
+        function (error) {
+            console.log('error@contact !' + error);
+        }
+    ) ;
+
+    if (Util.isEmpty(result)){
+        alert("Message failed ! Please try later");
+    }else{
+        alert("Message saved succesfully");
+        event.target.elements.name.value = "";
+        event.target.elements.email.value = "";
+         event.target.elements.message.value = "";
+    }
+
+
+}
+
+
+
 function Contact() {
+
 
     return (
 

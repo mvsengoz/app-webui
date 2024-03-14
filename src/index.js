@@ -11,6 +11,7 @@ import "./css/contact.css";
 import "./css/error.css";
 import "./css/loader.css";
 import "./css/boxicons.min.css";
+import "./css/alert.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

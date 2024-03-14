@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Astro Lab",
+  "name": "Astro Lab",
   "icons": [
     {
       "src": "favicon.ico",
