@@ -63,9 +63,9 @@ function Contact() {
             <br />
             <br />
             <br />
-            <br />
+
             <div id="fcf-form">
-                <h3 className="fcf-h3">Contact us</h3>
+                <h3 className="fcf-h3">Contact us </h3>
 
                 <form id="fcf-form-id" className="fcf-form-class" onSubmit={handleSubmit}>
 
@@ -94,7 +94,11 @@ function Contact() {
                         <button type="submit" id="fcf-button" className="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block" >Send Message</button>
                     </div>
 
+                    <div className="miniText">
+                      Or send your message via email.   <a href = "mailto: netaicope@gmail.com"> Send Email</a>
+                    </div>
 
+                    
 
                 </form>
             </div>

@@ -24,16 +24,15 @@ export default function App() {
                 <nav>
                     <div className="nav-bar">
                         <i className='bx bx-menu sidebarOpen' ></i>
-                        <span className="spanLogo" >AstroLab</span>
+                        <span className="spanLogo" >AICOPE</span>
 
                         <div className="menu">
                             <div className="logo-toggle">
-                                <span className="spanLogo" >AstroLab</span>
+                                <span className="spanLogo" >AICOPE</span>
                                 <i className='bx bx-x siderbarClose'></i>
                             </div>
 
                             <ul className="nav-links">
-
                                 <li><NavLink to="/daily">Daily Horoscope</NavLink></li>
                                 <li><NavLink to="/weekly">Weekly Horoscope</NavLink></li>
                                 <li><NavLink to="/monthly">Monthly Horoscope</NavLink></li>
@@ -54,7 +53,7 @@ export default function App() {
                     <Route exact path="/weekly" element={<PreviewWeekly />} />
                     <Route exact path="/monthly" element={<PreviewMonthly />} />
                     <Route exact path="/contact" element={<Contact />} />
-                    <Route exact path="/detail" element={<Detail />} />
+                    <Route exact path="/detail/*" element={<Detail />} />
                     <Route exact path="/error" element={<ErrorPage />} />
                     <Route exact path="*" element={<PreviewDaily />} />
                 </Routes>

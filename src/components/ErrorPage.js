@@ -6,7 +6,7 @@ function ErrorPage() {
 
         <div className="wrapper">
             <div className="boxError">
-                <h1>500</h1>
+                <h6>500</h6>
                 <p>Sorry, We have an error ...</p>
                 <p>&#58;&#40;</p>
                 <p><a href="/">Let me try again!</a></p>

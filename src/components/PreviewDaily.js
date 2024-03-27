@@ -4,23 +4,33 @@ import Util from './Util';
 import React from 'react';
 import ErrorPage from "./ErrorPage";
 import { NavLink } from 'react-router-dom';
+import moment from "moment";
+
+
+
 
 const cache = {};
+const header = "Daily Horosocopes";
+
 
 function PreviewDaily() {
+
 
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
   const [dailyList, setDailyList] = useState();
 
   useEffect(() => {
-
-    const serviceUrl = process.env.REACT_APP_API_ENDPOINT + "/daily-horoscopes";
+    document.title = header + " | aicope.net";
+    //const now = moment().format("YYYY-MM-DDTHH:mm:ss");
+    const now = moment().format("YYYY-MM-DDT01:00:00");
+    const serviceUrl = Util.getProtocol(window.location.href) + process.env.REACT_APP_API_ENDPOINT + "/horoscopes/daily/latest?period="+now;
 
     if (!Util.isEmpty(cache[serviceUrl])) {
       const data = cache[serviceUrl];
       setDailyList(data);
       setLoading(false);
+
 
     } else {
       axios.get(serviceUrl, Util.getConfigForApiCall()).then(response => {
@@ -53,16 +63,14 @@ function PreviewDaily() {
 */
   }
 
+
   return (
 
     <div >
 
-      <label id="text3d">Check all signs for {Util.getDate(dailyList[0].startedAt)}</label>
-
-      <br /><br />
-      <br /><br />
-      <br /><br />
-      <br /><br />
+      <h1>Today Daily Horoscopes</h1>
+      <h2>{Util.getDate(dailyList[0].startedAt)} {Util.getYear(dailyList[0].startedAt)}</h2>
+    
       <div className="container">
         <div className="row">
           {dailyList.map((d) => (
@@ -78,18 +86,18 @@ function PreviewDaily() {
                 </div>
 
                 <div className="title">
-                  <h4>{d.sign}</h4>
+                  <h4><b>{Util.prettify(d.sign)}</b></h4>
                   <b>{d.signStart} / {d.signEnd}</b>
                 </div>
 
                 <div className="text">
-                  <span>{Util.trimDownToWord(d.content, 100)}</span>
+                  <b>{Util.getDate(d.startedAt)} - </b><span>{Util.trimDownToWord(d.content, 100)}</span>
                 </div>
 
                 <NavLink
                   key={"detail_" + d.sign}
-                  to="/detail"
-                  state={{ sign: d.sign, details: d.content }}
+                  to={"/detail/daily-horoscope?hash="+d.id+"&sign="+d.sign+"&period=daily&date="+Util.getDateInfo("daily", d.startedAt, d.endedAt)}
+                  state={{ details: d.content }}
                 > Learn More</NavLink>
               </div>
               <br />

@@ -12,8 +12,9 @@ import "./css/error.css";
 import "./css/loader.css";
 import "./css/boxicons.min.css";
 import "./css/alert.css";
-
+import {  BrowserRouter as Router,  Routes,  Route} from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 
 
 root.render(
@@ -22,6 +23,7 @@ root.render(
   </BrowserRouter>
 
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

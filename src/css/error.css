@@ -19,9 +19,9 @@ html { box-sizing: border-box; }
   text-align: center;
 }
 
-h1, p:not(:last-of-type) { text-shadow: 0 0 6px #216f79; }
+h6, p:not(:last-of-type) { text-shadow: 0 0 6px #216f79; }
 
-h1 {
+h6 {
   margin: 0 0 1rem 0;
   font-size: 4em;
 }

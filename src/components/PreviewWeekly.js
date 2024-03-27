@@ -5,16 +5,17 @@ import ErrorPage from "./ErrorPage";
 import { NavLink } from 'react-router-dom';
 
 const cache = {};
+const header = "Weekly Horosocopes";
 
 function PreviewWeekly(){
-
+  document.title = header + " | aicope.net";
   const [isLoading, setLoading] = useState(true);
   const [weeklyList, setWeeklyList] = useState();
   const [isError, setError] = useState(false);
 
   useEffect(() => {
 
-    const serviceUrl = process.env.REACT_APP_API_ENDPOINT+"/weekly-horoscopes";
+    const serviceUrl = Util.getProtocol(window.location.href) + process.env.REACT_APP_API_ENDPOINT + "/horoscopes/weekly/latest";
  
     if(!Util.isEmpty(cache[serviceUrl])){
       const data = cache[serviceUrl];
@@ -53,13 +54,8 @@ function PreviewWeekly(){
 
     <div className="box">
 
-      <label id="text3d">Check all signs from {Util.getDate(weeklyList[0].startedAt)} to {Util.getDate(weeklyList[0].endedAt)}</label>
-
-      <br/><br/>
-      <br/><br/>
-      <br/><br/>
-      <br/><br/>
-
+      <h1>Weekly Horoscopes</h1>
+      <h2>{Util.getDate(weeklyList[0].startedAt)} to {Util.getDate(weeklyList[0].endedAt)}</h2>
     <div className="container">    
     <div className="row"> 
     {weeklyList.map((d) => (
@@ -75,18 +71,18 @@ function PreviewWeekly(){
           </div>
           
             <div className="title">
-              <h4>{d.sign}</h4>
+              <h4><b>{Util.prettify(d.sign)}</b></h4>
               <b>{d.signStart} / {d.signEnd}</b>
             </div>
                         
             <div className="text">
-              <span>{Util.trimDownToWord(d.content, 100)}</span>
+             <b>{Util.getDate(weeklyList[0].startedAt)} - {Util.getDate(weeklyList[0].endedAt)} - </b> <span>{Util.trimDownToWord(d.content, 100)}</span>
             </div>
                         
             <NavLink
                       key={"detail_"+d.sign}
-                      to="/detail"
-                      state={{ sign: d.sign , details: d.content}}
+                      to={"/detail/weekly-horoscope?hash="+d.id+"&sign="+d.sign+"&period=weekly&date="+Util.getDateInfo("weekly", d.startedAt, d.endedAt)}
+                      state={{ details: d.content}}
                     > Learn More</NavLink>
           </div>
           <br/>

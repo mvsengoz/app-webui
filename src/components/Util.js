@@ -50,7 +50,7 @@ class Util {
       }
 
       static getDate(input) {
-        var formatted = moment(input).format('Do MMM');
+        var formatted = moment(input).format('Do MMMM');
         return formatted;
       }
 
@@ -62,6 +62,37 @@ class Util {
       static getMonth(input) {
         var formatted = moment(input).format('MMMM');
         return formatted;
+      }
+
+      static prettify(input) {
+        return input.charAt(0).toUpperCase() + input.slice(1);
+      }
+
+      static clearData(input) {
+        return input.replace(new RegExp('<b>', 'g'), '').replace(new RegExp('</b>', 'g'), '');
+      }
+
+      static getDateInfo(period, startedAt, endedAt) {
+
+        if(period === "daily"){
+          return Util.getDate(startedAt);
+        }else if(period === "weekly"){
+          return Util.getDate(startedAt) +" - "+Util.getDate(endedAt);
+        }else if(period === "monthly"){
+          return Util.getMonth(startedAt)+" "+Util.getYear(startedAt);
+        }else{
+            return "";
+        }
+      }
+
+      static getProtocol(input) {
+          if(!Util.isEmpty(input)){
+            if(input.indexOf("https")>=0){
+              return "https://";
+            }else{
+              return "http://";
+            }
+          }
       }
 
   }

@@ -22,11 +22,7 @@
 }
 
 
-.spanLogo {
-    font-size: 1.8em;
-    color:#FFF ;
-    font-weight: bold;
-}
+
 
 /* ===== Colours ===== */
 :root{
@@ -309,16 +305,62 @@ body.dark .search-field i{
     justify-content: center;
   }
 
-  #text3d{
-  
+  .miniText {
+    font-family: 'Arial';
+    -webkit-text-size-adjust: none;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+.spanLogo {
+    font-size: 1.8em;
+    color:#FFF ;
+    font-weight: bold;
+}
+
+h1 {
+    font-weight: bold;
+    
+    font-size: 20px;
+
     position: absolute;
     top: 28%; 
     right: 50%;
     transform: translate(50%,-50%);
 
     font-family: verdana;
-    font-size: 1.5em;
-    font-weight: 700;
+    white-space: nowrap; 
+  
     color: #000000;
+  }
 
-}
+
+  
+h2 {
+    font-weight: bold;
+    white-space: nowrap; 
+    font-size: 20px;
+
+    position: absolute;
+    top: 35%; 
+    right: 50%;
+    transform: translate(50%,-50%);
+
+    font-family: verdana;
+
+    color: #000000;
+  }
+
+
+  .container{
+    padding-top: 200px;
+  }
+
+  .detailBox{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px
+  }

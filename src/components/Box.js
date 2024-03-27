@@ -16,7 +16,7 @@ function Box(props){
           </div>
                       
           <div className="text">
-            <span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
+            <span  style=" margin-left: 30px; margin-right: 30px;">Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
           </div>
                       
           <a href="/#">Learn More</a>

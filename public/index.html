@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
 
-    <meta http-equiv="Cache-control" content="max-age=600">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
 
+  <meta name="theme-color" content="#000000" />
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+  <title>Horoscopes, Zodiac Signs &amp; More | aicope.net</title>
+
+  <meta name="keywords" content="daily, weekly, monthly, horoscope, zodiac sign, free, aries, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces">
+  <meta name="author" content="aicope.net">
+  <meta name="title" content="Free daily, weekly, monthly horoscopes by aicope.net">
+  <meta name="description" content="Find free daily, weekly, monthly and 2024 horoscopes at aicope.net. Find out what the stars have aligned for you today!">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta http-equiv="Cache-control" content="max-age=600">
+
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="canonical" href="http://www.aicope.net">
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -27,42 +33,89 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Astro Lab</title>
-
-  </head>
-  <body onload="afterload();">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-
-  </body>
-
-</html>
 
 
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="http://aicope.net">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daily, Weekly and Monthly Horoscopes | aicope.net">
+<meta property="og:description" content="Find free daily, weekly, monthly and 2024 horoscopes at aicope.net. Find out what the stars have aligned for you today!">
+<meta property="og:image" content="/logo192.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="aicope.net">
+<meta property="twitter:url" content="http://aicope.net">
+<meta name="twitter:title" content="Daily, Weekly and Monthly Horoscopes | aicope.net">
+<meta name="twitter:description" content="Find free daily, weekly, monthly and 2024 horoscopes at aicope.net. Find out what the stars have aligned for you today!">
+<meta name="twitter:image" content="/logo192.png">
+
+
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FRJY5JWFTV"></script>
 <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-function afterload() {
-        const body = document.querySelector("body"),
-        nav = document.querySelector("nav"),
-        modeToggle = document.querySelector(".dark-light"),
-        searchToggle = document.querySelector(".searchToggle"),
-        sidebarOpen = document.querySelector(".sidebarOpen"),
-        siderbarClose = document.querySelector(".siderbarClose");
-
-        sidebarOpen.addEventListener("click" , () =>{
-        nav.classList.add("active");
-        });
-
-        body.addEventListener("click" , e =>{
-        let clickedElm = e.target;
-
-        if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
-          nav.classList.remove("active");
-        }
-        });
-        }
-
+  gtag('config', 'G-FRJY5JWFTV');
 </script>
 
-  
-    
+</head>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    "name": "aicope",
+    "url": "http://aicope.net",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+<body>
+
+
+  <div id="root"></div>
+
+  <h1 style="color: #E4E9F7; font-size: 1px; position: absolute; bottom: 0px; ">daily, weekly, monthly, horoscope, zodiac sign , today </h1>
+  <h2 style="color: #E4E9F7; font-size: 1px; position: absolute; bottom: 0px;" >aries, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces</h2>
+
+</body>
+
+</html>
+<script>
+
+
+
+  window.onload = function () {
+            setTimeout(function () {
+                const body = document.querySelector("body");
+                const nav = document.querySelector("nav");
+                const modeToggle = document.querySelector(".dark-light");
+                const searchToggle = document.querySelector(".searchToggle");
+                const sidebarOpen = document.querySelector(".sidebarOpen");
+                const siderbarClose = document.querySelector(".siderbarClose");
+
+                sidebarOpen.addEventListener("click", () => {
+                  nav.classList.add("active");
+                });
+
+                body.addEventListener("click", e => {
+                  let clickedElm = e.target;
+
+                  if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")) {
+                    nav.classList.remove("active");
+                  }
+                });
+            }, 200); // Delay of 5 seconds
+        };
+
+
+</script>
